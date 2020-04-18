@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<view class="container {{showBanner && 'banner'}}">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+      Get User Info
+    </button>
+    <block wx:else>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <view class="userinfo-data">
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        <text>{{userInfo.city}}, {{userInfo.province}}</text>
+      </view>
+    </block>
+  </view>
+  <view>
+    <view>
+      <button class="btn btn-index" type="secondary" bindtap="bindViewTap">Check Logs</button>
+    </view>
+    <view>
+      <button class="btn btn-index" type="primary" bindtap="increment">Clicks: {{count}}</button>
+    </view>
+    <view>
+      <button class="btn btn-index" type="warn" bindtap="toggleImage">Toggle Image</button>
+      <block wx:if="{{showImage}}">
+        <view class="img__container">
+          <image class="img" src="https://tse2-mm.cn.bing.net/th/id/OIP.aUGsVdthtkxxd-kx7yd_awHaE8?pid=Api&rs=1" mode="cover"></image>
+        </view>
+      </block>
+    </view>
+    <view>
+      <button class="btn btn-index" type="secondary" bindtap="toggleBanner">Toggle Background</button>
+    </view>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view>
